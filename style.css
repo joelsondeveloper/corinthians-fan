@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    color: #333;
+    color: whitesmoke;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.sections{
+    width: 100vw;
+    height: 100vh;
+}
+
+.section1{
+    overflow: hidden;
+}
+
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+    filter: brightness(50%);
+}
+
+.header-hero{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.logo-hero{
+    display: flex;
+    align-items: center;
+    
+}
+
+.logo-hero img{
+    width: 6rem;
+    /* height: 100vh; */
+    object-fit: cover;
+    z-index: 1;
+}
+
+.logo-hero h1 {
+    opacity: 0;
+    transition: .6s;
+    letter-spacing: 2px;
+}
+
+.logo-hero img:hover + h1 {
+    animation: fadeIn .6s ease-in-out forwards;
+}
+
+.logo-hero h1 {
+    animation: fadeOut .6s ease-in-out forwards;
+}
+
+.ul-hero{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+.ul-hero a{
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+}
+
+.content-hero{
+    height: calc(100vh - 96px);
+    width: 100%;
+}
+
+.design-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.design-container img {
+    position: absolute;
+    width: 30%;
+}
+
+.hugo {
+    right: 50%;
+    bottom: 0;
+    z-index: -2;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7));
+}
+
+.design-container .brasao {
+    width: 45%;
+    left: 30%;
+    bottom: 0;
+    transform: translate(0, 15%);
+    z-index: -1;
+    filter: drop-shadow(0px 0px 10px rgba(255, 0, 0, 0.6));
+}
+
+.yuri {
+    left: 50%;
+    bottom: 0;
+    z-index: 0;
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7));
+}
