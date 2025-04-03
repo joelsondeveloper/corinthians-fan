@@ -38,19 +38,147 @@
       </header>
       <div class="content-hero">
         <div class="design-container">
-          <img src="img/hugo-removebg-preview.png" alt="" class="hugo">
-          <img src="img/logo-corinthians.png" alt="" class="brasao">
-          <img src="img/yuri-removebg-preview.png" alt="" class="yuri">
+          <img src="img/hugo-removebg-preview.png" alt="" class="hugo" />
+          <img src="img/logo-corinthians.png" alt="" class="brasao" />
+          <img src="img/yuri-removebg-preview.png" alt="" class="yuri" />
         </div>
       </div>
     </div>
     <div class="section2 sections">
-      <div class="content-sobre">
-        Fundado em 1910, o Corinthians é um dos maiores clubes do Brasil e do mundo. Com uma torcida apaixonada, o Timão construiu uma trajetória de conquistas, incluindo múltiplos Campeonatos Brasileiros, Libertadores e um Mundial inesquecível. Mais que um time, uma nação!
-      </div>
       <section class="content-titulos">
-        
+        <div class="container-titulos">
+          <div class="botoes-titulo">
+            <button onclick="trocarTrofeu(-1)">◀</button>
+            <button onclick="trocarTrofeu(1)">▶</button>
+          </div>
+          <div class="trofeu-container">
+            <img src="img/mundial.png" class="trofeu" alt="Troféu Mundial" />
+            <img src="img/paulista.png" class="trofeu" alt="Troféu Paulista" />
+            <img
+              src="img/brasileiro.png"
+              class="trofeu"
+              alt="Troféu campeonato brasileiro"
+            />
+            <img src="img/libertadores.png" class="trofeu" alt="Troféu 3" />
+          </div>
+        </div>
+      </section>
+      <div class="content-sobre" id="descricao">
+        <h2>Sobre o Corinthians</h2>
+        Fundado em 1910, o Corinthians é um dos maiores clubes do Brasil e do
+        mundo. Com uma torcida apaixonada, o Timão construiu uma trajetória de
+        conquistas, incluindo múltiplos Campeonatos Brasileiros, Libertadores e
+        um Mundial inesquecível. Mais que um time, uma nação!
+      </div>
+      <script>
+        const trofeus = document.querySelectorAll(".trofeu");
+        const descricao = document.getElementById("descricao");
+        let indexAtual = 0;
+        const textos = [
+          {
+            titulo: "Campeonato Mundial de Clubes",
+            descricao:
+              "O Corinthians conquistou o Mundial de Clubes da FIFA em 2000 e 2012, com vitórias memoráveis, incluindo uma sobre o Chelsea.",
+          },
+          {
+            titulo: "Campeonato Paulista",
+            descricao:
+              "Com 31 títulos, o Corinthians é o maior campeão do Campeonato Paulista, com conquistas em diversas edições ao longo da sua história.",
+          },
+          {
+            titulo: "Campeonato Brasileiro",
+            descricao:
+              "O Timão conquistou o Campeonato Brasileiro sete vezes: 1990, 1998, 1999, 2005, 2011, 2015 e 2017, com atuações épicas.",
+          },
+          {
+            titulo: "Libertadores",
+            descricao:
+              "Em 2012, o Corinthians conquistou sua primeira Copa Libertadores da América, quebrando um longo jejum e se consagrando campeão continental.",
+          },
+        ];
+
+        function trocarTrofeu(direcao) {
+          trofeus[indexAtual].classList.remove("ativo");
+          indexAtual += direcao;
+          if (indexAtual < 0) indexAtual = trofeus.length - 1;
+          if (indexAtual >= trofeus.length) indexAtual = 0;
+          trofeus[indexAtual].classList.add("ativo");
+          descricao.innerHTML = `<h2>${textos[indexAtual].titulo}</h2><p>${textos[indexAtual].descricao}</p>`;
+        }
+      </script>
+    </div>
+    <div class="section3 sections">
+      <h2>Próximos Jogos do Corinthians</h2>
+      <section class="container-prox-jogos">
+        <div class="carrossel">
+          <!-- Os itens do carrossel (artigos dos jogos) -->
+          <article class="prox-jogos">
+            <h3>Corinthians vs Palmeiras</h3>
+            <p>Data: 15/10/2023</p>
+            <p>Local: Arena Corinthians</p>
+            <a href="#" class="cta-ingresso">adiquira seu ingresso</a>
+          </article>
+          <article class="prox-jogos">
+            <h3>Corinthians vs Flamengo</h3>
+            <p>Data: 20/10/2023</p>
+            <p>Local: Arena Corinthians</p>
+            <a href="#" class="cta-ingresso">adiquira seu ingresso</a>
+          </article>
+          <article class="prox-jogos">
+            <h3>Corinthians vs São Paulo</h3>
+            <p>Data: 25/10/2023</p>
+            <p>Local: Arena Corinthians</p>
+            <a href="#" class="cta-ingresso">adiquira seu ingresso</a>
+          </article>
+          <article class="prox-jogos">
+            <h3>Corinthians vs Santos</h3>
+            <p>Data: 30/10/2023</p>
+            <p>Local: Arena Corinthians</p>
+            <a href="#" class="cta-ingresso">adiquira seu ingresso</a>
+          </article>
+          <article class="prox-jogos">
+            <h3>Corinthians vs Fluminense</h3>
+            <p>Data: 05/11/2023</p>
+            <p>Local: Arena Corinthians</p>
+            <a href="#" class="cta-ingresso">adiquira seu ingresso</a>
+          </article>
+        </div>
+        <!-- Controles de navegação -->
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
       </section>
     </div>
+    <script>
+      const prevButton = document.querySelector(".prev");
+      const nextButton = document.querySelector(".next");
+      const carrossel = document.querySelector(".carrossel");
+      let index = 0;
+      const totalItems = document.querySelectorAll(".prox-jogos").length;
+
+      // Função para mover o carrossel
+      function moveCarrossel() {
+        carrossel.style.transform = `translateX(-${index * 100}%)`;
+      }
+
+      // Função para ir para o próximo item
+      nextButton.addEventListener("click", () => {
+        if (index < totalItems - 1) {
+          index++;
+        } else {
+          index = 0; // Volta para o início
+        }
+        moveCarrossel();
+      });
+
+      // Função para voltar para o item anterior
+      prevButton.addEventListener("click", () => {
+        if (index > 0) {
+          index--;
+        } else {
+          index = totalItems - 1; // Vai para o último item
+        }
+        moveCarrossel();
+      });
+    </script>
   </body>
 </html>
