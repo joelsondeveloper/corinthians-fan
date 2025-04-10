@@ -22,6 +22,7 @@ body {
   color: #333;
   color: whitesmoke;
   font-family: "Bebas Neue", sans-serif;
+  background-color: var(--background-color);
 }
 
 .sections {
@@ -280,11 +281,12 @@ body {
   background-position: center, center right;
   background-size: cover, 50%;
   background-repeat: no-repeat, no-repeat;
+  height: 50%;
 }
 
 .content-sobre {
   width: 50%;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -297,7 +299,7 @@ body {
 
 .content-titulos {
   width: 50%;
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
